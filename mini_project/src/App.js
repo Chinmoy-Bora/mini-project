@@ -1,9 +1,12 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import ChatBox from './components/ChatBox';
-import MessageInput from './components/MessageInput';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+
+import ImageGenerationPage from './components/ImageGeneration';
 import './App.css';
 import Navbar from './components/Navbar';
+import Login from './components/Login';
+import Register from './components/Register';
 
 const App = () => {
   const [messages, setMessages] = useState([]);
@@ -23,9 +26,18 @@ const App = () => {
 
   return (
     <div className="App">
-      <Navbar/>
-      <ChatBox messages={messages} />
-      <MessageInput onSendMessage={handleSendMessage} />
+      <Router>
+      <Navbar />
+        
+        
+        <Routes>
+        
+        <Route path="/image-generation" element={<ImageGenerationPage messages={messages} onSendMessage={handleSendMessage} />} />
+        <Route exact path="/login" element={<Login/>} />
+        <Route exact path="/register" element={<Register/>} />
+        
+        </Routes>
+      </Router>
     </div>
   );
 };

@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom'; // Import Link component from react-router-dom
 import '../styling/Navbar.css';
 
 const Navbar = () => {
@@ -12,11 +13,12 @@ const Navbar = () => {
     <nav className="navbar">
       {/* Original navbar items */}
       <ul className="navbar-nav">
-        <li className="nav-item"><a href="#">HOME</a></li>
-        <li className="nav-item"><a href="#">IMAGE GENERATION</a></li>
-        <li className="nav-item"><a href="#">IMAGE CLASSIFICATION</a></li>
-        <li className="nav-item"><a href="#">REGISTER</a></li>
-        <li className="nav-item"><a href="#">LOGIN</a></li>
+        {/* Use Link components instead of anchor tags */}
+        <li className="nav-item"><Link to="/">HOME</Link></li>
+        <li className="nav-item"><Link to="/image-generation">IMAGE GENERATION</Link></li>
+        <li className="nav-item"><Link to="/image-classification">IMAGE CLASSIFICATION</Link></li>
+        <li className="nav-item"><Link to="/register">REGISTER</Link></li>
+        <li className="nav-item"><Link to="/login">LOGIN</Link></li>
       </ul>
 
       {/* Mobile navbar toggle button */}
@@ -27,11 +29,12 @@ const Navbar = () => {
       {/* Mobile navbar items */}
       {isMobileMenuOpen && (
         <ul className="navbar-nav-mobile">
-          <li className="nav-item"><a href="#">HOME</a></li>
-          <li className="nav-item"><a href="#">IMAGE GENERATION</a></li>
-          <li className="nav-item"><a href="#">IMAGE CLASSIFICATION</a></li>
-          <li className="nav-item"><a href="#">REGISTER</a></li>
-          <li className="nav-item"><a href="#">LOGIN</a></li>
+          {/* Use Link components instead of anchor tags */}
+          <li className="nav-item"><Link to="/">HOME</Link></li>
+          <li className="nav-item"><Link to="/image-generation">IMAGE GENERATION</Link></li>
+          <li className="nav-item"><Link to="/image-classification">IMAGE CLASSIFICATION</Link></li>
+          <li className="nav-item"><Link to="/register">REGISTER</Link></li>
+          <li className="nav-item"><Link to="/login">LOGIN</Link></li>
         </ul>
       )}
     </nav>
