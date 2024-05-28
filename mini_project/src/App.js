@@ -3,6 +3,7 @@ import axios from 'axios';
 import ChatBox from './components/ChatBox';
 import MessageInput from './components/MessageInput';
 import './App.css';
+import Navbar from './components/Navbar';
 
 const App = () => {
   const [messages, setMessages] = useState([]);
@@ -22,7 +23,7 @@ const App = () => {
 
   return (
     <div className="App">
-      <h1>ChatGPT Interface</h1>
+      <Navbar/>
       <ChatBox messages={messages} />
       <MessageInput onSendMessage={handleSendMessage} />
     </div>
