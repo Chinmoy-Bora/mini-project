@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
 import '../styling/LoginStyle.css';
+import { useAuth } from './AuthContext';
 
 const Login = () => {
+  const { login } = useAuth(); // Access the login function from AuthContext
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
 
@@ -29,14 +31,16 @@ const Login = () => {
       });
   
       if (response.ok) {
-        // Registration successful, handle success response
+        // Login successful, handle success response
+        // Call the login function from AuthContext to update authentication state
+        login({ username }); // You can pass additional user data if needed
         alert('Login successful');
       } else {
-        // Registration failed, handle error response
+        // Login failed, handle error response
         alert('Login failed:', response.statusText);
       }
     } catch (error) {
-      console.error('Error registering user:', error.message);
+      console.error('Error logging in:', error.message);
     }
   };
 

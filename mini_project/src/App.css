@@ -1,13 +1,13 @@
 body {
-  margin: 0; /* Remove default margin */
-  background-color: #A3BAFE; /* Set background color for the entire screen */
+  margin: 0; 
+  background-color: #A3BAFE; 
 }
 
 .App {
   display: flex;
   flex-direction: column;
-  min-height: 100vh; /* Use min-height for flexibility */
-  background-color: inherit; /* Inherit background color from body */
+  min-height: 100vh;
+  background-color: inherit; 
   color: wheat;
 }
 

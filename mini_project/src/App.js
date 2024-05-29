@@ -7,6 +7,9 @@ import './App.css';
 import Navbar from './components/Navbar';
 import Login from './components/Login';
 import Register from './components/Register';
+import Home from './components/Home';
+import { AuthProvider } from './components/AuthContext';
+import ProtectedRoute from './components/ProtectedRoute';
 
 const App = () => {
   const [messages, setMessages] = useState([]);
@@ -26,18 +29,20 @@ const App = () => {
 
   return (
     <div className="App">
+      <AuthProvider>
       <Router>
-      <Navbar />
+        <Navbar />
         
         
         <Routes>
-        
-        <Route path="/image-generation" element={<ImageGenerationPage messages={messages} onSendMessage={handleSendMessage} />} />
+        <Route path="/" element={<Home/>} />
+        <ProtectedRoute path="/image-generation" element={<ImageGenerationPage messages={messages} onSendMessage={handleSendMessage} />} />
         <Route exact path="/login" element={<Login/>} />
         <Route exact path="/register" element={<Register/>} />
         
         </Routes>
       </Router>
+      </AuthProvider>
     </div>
   );
 };
