@@ -18,7 +18,7 @@ const Navbar = () => {
         <li className="nav-item"><Link to="/">HOME</Link></li>
         <li className="nav-item"><Link to="/image-generation">IMAGE GENERATION</Link></li>
         <li className="nav-item"><Link to="/image-classification">IMAGE CLASSIFICATION</Link></li>
-        <li className="nav-item"><Link to="/register">REGISTER</Link></li>
+        {/* <li className="nav-item"><Link to="/register">REGISTER</Link></li> */}
         {user ? (
           <li className="nav-item" onClick={logout}>LOGOUT</li>
         ) : (
@@ -35,7 +35,7 @@ const Navbar = () => {
           <li className="nav-item"><Link to="/">HOME</Link></li>
           <li className="nav-item"><Link to="/image-generation">IMAGE GENERATION</Link></li>
           <li className="nav-item"><Link to="/image-classification">IMAGE CLASSIFICATION</Link></li>
-          <li className="nav-item"><Link to="/register">REGISTER</Link></li>
+          {/* <li className="nav-item"><Link to="/register">REGISTER</Link></li> */}
           {user ? (
             <li className="nav-item" onClick={logout}>LOGOUT</li>
           ) : (

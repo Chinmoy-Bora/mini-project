@@ -1,9 +1,13 @@
 import React, { useState } from 'react';
 import '../styling/LoginStyle.css';
+import { useAlert } from './AlertContext';
+import { useNavigate } from 'react-router-dom';
 
 const Register = () => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
+  const { showAlert } = useAlert();
+  const navigate=useNavigate();
 
   const handleUsernameChange = (event) => {
     setUsername(event.target.value);
@@ -29,14 +33,17 @@ const Register = () => {
       });
   
       if (response.ok) {
-        // Registration successful, handle success response
-        alert('Registration successful');
+        showAlert('Registration successful');
+        navigate('/login')
       } else {
-        // Registration failed, handle error response
+        
+        showAlert("Registration failed:"+response.statusText);
         console.error('Registration failed:', response.statusText);
       }
     } catch (error) {
+      
       console.error('Error registering user:', error.message);
+      showAlert('Error registering user:', + error.message);
     }
   };
   

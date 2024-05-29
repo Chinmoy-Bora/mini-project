@@ -94,6 +94,24 @@ h1 {
   transform: translateX(-50%);
 }
 
+.alert {
+  position: fixed;
+  
+  bottom: 0;
+  width: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 15px;
+  margin: 10px 0;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  color: #fff;
+  background-color: #365ff4; 
+  text-align: center;
+  opacity: 0.9;
+  z-index: 1000;
+}
+
 /* Adjustments for mobile responsiveness */
 @media (max-width: 768px) {
   .Header {

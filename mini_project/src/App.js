@@ -10,6 +10,7 @@ import Login from './components/Login';
 import Register from './components/Register';
 import Home from './components/Home';
 import { AuthProvider } from './components/AuthContext';
+import { AlertProvider, useAlert } from './components/AlertContext';
 import ProtectedRoute from './components/ProtectedRoute';
 
 const App = () => {
@@ -31,9 +32,11 @@ const App = () => {
   return (
     <div className="App">
       <AuthProvider>
+      <AlertProvider>
         <Router>
           
           <Navbar />
+          <Alert />
           <Routes>
             <Route path="/" element={<Home />} />
             <Route element={<ProtectedRoute/>}>
@@ -44,9 +47,21 @@ const App = () => {
           </Routes>
           
         </Router>
+        </AlertProvider>
       </AuthProvider>
     </div>
   );
 };
 
+const Alert = () => {
+  const { alertMessage, alertVisible } = useAlert();
+
+  return (
+    alertVisible && (
+      <div className="alert">
+        {alertMessage}
+      </div>
+    )
+  );
+};
 export default App;
