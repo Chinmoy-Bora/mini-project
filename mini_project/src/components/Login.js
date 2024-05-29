@@ -3,7 +3,7 @@ import '../styling/LoginStyle.css';
 import { useAuth } from './AuthContext';
 
 const Login = () => {
-  const { login } = useAuth(); // Access the login function from AuthContext
+  const { login } = useAuth(); 
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
 
@@ -35,6 +35,9 @@ const Login = () => {
         // Call the login function from AuthContext to update authentication state
         login({ username }); // You can pass additional user data if needed
         alert('Login successful');
+        setUsername('');
+        setPassword('');
+        
       } else {
         // Login failed, handle error response
         alert('Login failed:', response.statusText);

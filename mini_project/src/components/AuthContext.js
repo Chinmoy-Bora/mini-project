@@ -1,4 +1,3 @@
-// AuthContext.js
 import React, { createContext, useState, useContext, useEffect } from 'react';
 
 const AuthContext = createContext();
@@ -21,11 +20,16 @@ export const AuthProvider = ({ children }) => {
     localStorage.setItem('user', JSON.stringify(userData));
   };
 
-  const logout = () => {
-    // Perform logout logic (e.g., clear local storage, session)
-    // Update user state to null
+  const logout = () => {  
+    if(window.confirm("Sure you want to logout??"))
+    {
     setUser(null);
     localStorage.removeItem('user');
+    }
+    else
+    {
+      console.log();
+    }
   };
 
   return (

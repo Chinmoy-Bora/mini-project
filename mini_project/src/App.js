@@ -1,3 +1,4 @@
+// App.js
 import React, { useState } from 'react';
 import axios from 'axios';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
@@ -30,18 +31,19 @@ const App = () => {
   return (
     <div className="App">
       <AuthProvider>
-      <Router>
-        <Navbar />
-        
-        
-        <Routes>
-        <Route path="/" element={<Home/>} />
-        <ProtectedRoute path="/image-generation" element={<ImageGenerationPage messages={messages} onSendMessage={handleSendMessage} />} />
-        <Route exact path="/login" element={<Login/>} />
-        <Route exact path="/register" element={<Register/>} />
-        
-        </Routes>
-      </Router>
+        <Router>
+          
+          <Navbar />
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route element={<ProtectedRoute/>}>
+              <Route path="/image-generation" element={<ImageGenerationPage messages={messages} onSendMessage={handleSendMessage}/>}/>
+            </Route>
+            <Route path="/login" element={<Login />} />
+            <Route path="/register" element={<Register />} />
+          </Routes>
+          
+        </Router>
       </AuthProvider>
     </div>
   );
